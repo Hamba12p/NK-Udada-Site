@@ -385,9 +385,8 @@
     #gallery { background: var(--warm); }
 
     .gallery-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
-      align-items: start;
+      column-count: 3;
+      column-gap: 18px;
     }
 
     .gallery-card {
@@ -396,6 +395,11 @@
       border: 1px solid var(--border);
       background: #fff;
       box-shadow: 0 14px 36px rgba(0,0,0,.06);
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 18px;
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
     }
 
     .gallery-card img,
@@ -675,6 +679,7 @@
       .programs-grid { grid-template-columns: 1fr; }
       .program-card.featured { grid-column: auto; grid-template-columns: 1fr; }
       .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { column-count: 2; }
       .volunteer-inner { grid-template-columns: 1fr; gap: 48px; }
       .contact-grid { grid-template-columns: 1fr; gap: 48px; }
       .nav-links { display: none; }
@@ -686,6 +691,7 @@
     @media (max-width: 600px) {
       .team-grid { grid-template-columns: 1fr; }
       .hero-stats { gap: 20px; }
+      .gallery-grid { column-count: 1; }
     }
 
     /* Success message */
